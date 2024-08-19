@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class PatientListComponent {
 
   patients: Patient[] = [];
-  displayedColumns: string[] = ['id', 'firstName', 'name', 'heartRate', 'temperature', 'bloodPressure', 'oxygenSaturation', 'actions'];
+  displayedColumns: string[] = ['name', 'heartRate', 'temperature', 'bloodPressure', 'oxygenSaturation', 'actions'];
 
   constructor(private patientService: PatientService, private router: Router) { }
 
