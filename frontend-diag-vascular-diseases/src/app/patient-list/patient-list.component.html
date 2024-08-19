@@ -1,0 +1,50 @@
+<div class="container">
+  <mat-table [dataSource]="patients" class="mat-elevation-z8">
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let patient" (click)="viewPatientDetails(patient)">
+        {{ patient.firstName }} {{ patient.lastName }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Heart Rate Column -->
+    <ng-container matColumnDef="heartRate">
+      <mat-header-cell *matHeaderCellDef> Heart Rate </mat-header-cell>
+      <mat-cell *matCellDef="let patient">
+        {{ patient.vitals?.heartRate.join(', ') }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Temperature Column -->
+    <ng-container matColumnDef="temperature">
+      <mat-header-cell *matHeaderCellDef> Temperature </mat-header-cell>
+      <mat-cell *matCellDef="let patient">
+        {{ patient.vitals?.temperature.join(', ') }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Blood Pressure Column -->
+    <ng-container matColumnDef="bloodPressure">
+      <mat-header-cell *matHeaderCellDef> Blood Pressure </mat-header-cell>
+      <mat-cell *matCellDef="let patient">
+        <span *ngFor="let bp of patient.vitals?.bloodPressure">
+          {{ bp.systolic }}/{{ bp.diastolic }}<br>
+        </span>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Oxygen Saturation Column -->
+    <ng-container matColumnDef="oxygenSaturation">
+      <mat-header-cell *matHeaderCellDef> Oxygen Saturation </mat-header-cell>
+      <mat-cell *matCellDef="let patient">
+        {{ patient.vitals?.oxygenSaturation.join(', ') }}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+
+</div>
