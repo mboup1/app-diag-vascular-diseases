@@ -24,9 +24,21 @@ export class EditPatientComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.editPatientForm = new FormGroup({
+      firstName: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
+      age: new FormControl('', [Validators.required, Validators.min(0)]),
+      medicalRecordNumber: new FormControl('', [Validators.required]),
+      heartRate: new FormControl('', [Validators.required]),
+      temperature: new FormControl('', [Validators.required]),
+      bloodPressure: new FormControl('', [Validators.required]),
+      oxygenSaturation: new FormControl('', [Validators.required]),
+    });
+
     this.patientId = +this.route.snapshot.paramMap.get('id')!;
     this.loadPatientData();
   }
+
 
   loadPatientData(): void {
     this.patientService.getPatientById(this.patientId).subscribe((patient: Patient) => {
@@ -35,10 +47,10 @@ export class EditPatientComponent implements OnInit {
         lastName: new FormControl(patient.lastName, [Validators.required]),
         age: new FormControl(patient.age, [Validators.required, Validators.min(0)]),
         medicalRecordNumber: new FormControl(patient.medicalRecordNumber, [Validators.required]),
-        heartRate: new FormControl(patient.vitals?.heartRate.join(', '), [Validators.required]),
-        temperature: new FormControl(patient.vitals?.temperature.join(', '), [Validators.required]),
-        bloodPressure: new FormControl(patient.vitals?.bloodPressure.map(bp => `${bp.systolic}/${bp.diastolic}`).join(', '), [Validators.required]),
-        oxygenSaturation: new FormControl(patient.vitals?.oxygenSaturation.join(', '), [Validators.required]),
+        heartRate: new FormControl(patient.vitals?.heartRate.join(', ')),
+        temperature: new FormControl(patient.vitals?.temperature.join(', ')),
+        bloodPressure: new FormControl(patient.vitals?.bloodPressure.map(bp => `${bp.systolic}/${bp.diastolic}`).join(', ')),
+        oxygenSaturation: new FormControl(patient.vitals?.oxygenSaturation.join(', ')),
       });
     });
   }
@@ -62,22 +74,22 @@ export class EditPatientComponent implements OnInit {
         }
       };
 
-      // this.patientService.updatePatient(updatedPatient).subscribe({
-      //   next: () => {
-      //     this.snackBar.open('Patient successfully updated!', 'Close', {
-      //       duration: 3000,
-      //       panelClass: ['success-snackbar']
-      //     });
-      //     this.router.navigate(['/patients']);
-      //   },
-      //   error: (error) => {
-      //     this.snackBar.open('An error occurred while updating the patient.', 'Close', {
-      //       duration: 3000,
-      //       panelClass: ['error-snackbar']
-      //     });
-      //     console.error('Error updating patient:', error);
-      //   }
-      // });
+      this.patientService.updatePatient(this.patientId, updatedPatient).subscribe({
+        next: () => {
+          this.snackBar.open('Patient successfully updated!', 'Close', {
+            duration: 3000,
+            panelClass: ['success-snackbar']
+          });
+          this.router.navigate(['/patients']);
+        },
+        error: (error) => {
+          this.snackBar.open('An error occurred while updating the patient.', 'Close', {
+            duration: 3000,
+            panelClass: ['error-snackbar']
+          });
+          console.error('Error updating patient:', error);
+        }
+      });
     }
   }
 }

@@ -1,7 +1,7 @@
 <div class="row m-5">
   <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
     <div class="bg-white shadow rounded p-4">
-      <h1 class="display-6 text-dark text-center">Ajouter un Patient</h1>
+      <h3 class="display-6 text-dark text-center">Ajouter un Patient</h3>
       <hr class="bg-dark mb-5" />
 
       <form [formGroup]="newPatientForm" (ngSubmit)="addPatient()">
@@ -27,22 +27,22 @@
 
         <div class="form-group mb-3">
           <label for="heartRate">Fréquence cardiaque :</label>
-          <input type="text" id="heartRate" class="form-control" formControlName="heartRate">
+          <input type="text" id="heartRate" class="form-control" formControlName="heartRate" placeholder="98, 97, 96, 98, 99">
         </div>
 
         <div class="form-group mb-3">
           <label for="temperature">Température :</label>
-          <input type="text" id="temperature" class="form-control" formControlName="temperature">
+          <input type="text" id="temperature" class="form-control" formControlName="temperature" placeholder="36.6, 36.7, 36.8, 36.5, 36.9">
         </div>
 
         <div class="form-group mb-3">
           <label for="bloodPressure">Pression artérielle :</label>
-          <input type="text" id="bloodPressure" class="form-control" formControlName="bloodPressure">
+          <input type="text" id="bloodPressure" class="form-control" formControlName="bloodPressure" placeholder="115/75, 118/76, 116/74">
         </div>
 
         <div class="form-group mb-3">
           <label for="oxygenSaturation">Saturation en oxygène :</label>
-          <input type="text" id="oxygenSaturation" class="form-control" formControlName="oxygenSaturation">
+          <input type="text" id="oxygenSaturation" class="form-control" formControlName="oxygenSaturation" placeholder="98, 97, 96, 98, 99">
         </div>
 
         <div class="d-flex">

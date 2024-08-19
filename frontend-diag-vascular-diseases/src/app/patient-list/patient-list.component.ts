@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class PatientListComponent {
 
   patients: Patient[] = [];
-  displayedColumns: string[] = ['name', 'heartRate', 'temperature', 'bloodPressure', 'oxygenSaturation', 'actions'];
+  displayedColumns: string[] = ['id', 'firstName', 'name', 'heartRate', 'temperature', 'bloodPressure', 'oxygenSaturation', 'actions'];
 
   constructor(private patientService: PatientService, private router: Router) { }
 
@@ -22,7 +22,7 @@ export class PatientListComponent {
 
   loadPatients(): void {
     this.patientService.getPatients().subscribe(data => this.patients = data);
-    console.log("this.patients : ", this.patients)
+    // console.log("this.patients : ", this.patients)
   }
 
   viewPatientDetails(patient: Patient): void {
@@ -30,6 +30,8 @@ export class PatientListComponent {
   }
 
   editPatient(patient: Patient): void {
+    // console.log("editPatient : ", patient)
+
     this.router.navigate(['/edit-patient', patient.id]);
   }
 
