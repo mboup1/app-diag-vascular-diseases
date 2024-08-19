@@ -1,53 +1,53 @@
 <div class="row m-5">
   <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
     <div class="bg-white shadow rounded p-4">
-      <h1 class="display-6 text-dark text-center">Ajouter un Patient</h1>
+      <h1 class="display-6 text-dark text-center">Edit Patient</h1>
       <hr class="bg-dark mb-5" />
 
-      <form [formGroup]="newPatientForm" (ngSubmit)="addPatient()">
+      <form [formGroup]="editPatientForm" (ngSubmit)="updatePatient()">
         <div class="form-group mb-3">
-          <label for="firstName">Prénom :</label>
+          <label for="firstName">First Name:</label>
           <input type="text" id="firstName" class="form-control" formControlName="firstName">
         </div>
 
         <div class="form-group mb-3">
-          <label for="lastName">Nom :</label>
+          <label for="lastName">Last Name:</label>
           <input type="text" id="lastName" class="form-control" formControlName="lastName">
         </div>
 
         <div class="form-group mb-3">
-          <label for="age">Âge :</label>
+          <label for="age">Age:</label>
           <input type="number" id="age" class="form-control" formControlName="age">
         </div>
 
         <div class="form-group mb-3">
-          <label for="medicalRecordNumber">Numéro de dossier médical :</label>
+          <label for="medicalRecordNumber">Medical Record Number:</label>
           <input type="text" id="medicalRecordNumber" class="form-control" formControlName="medicalRecordNumber">
         </div>
 
         <div class="form-group mb-3">
-          <label for="heartRate">Fréquence cardiaque :</label>
+          <label for="heartRate">Heart Rate (comma-separated):</label>
           <input type="text" id="heartRate" class="form-control" formControlName="heartRate">
         </div>
 
         <div class="form-group mb-3">
-          <label for="temperature">Température :</label>
+          <label for="temperature">Temperature (comma-separated):</label>
           <input type="text" id="temperature" class="form-control" formControlName="temperature">
         </div>
 
         <div class="form-group mb-3">
-          <label for="bloodPressure">Pression artérielle :</label>
+          <label for="bloodPressure">Blood Pressure (systolic/diastolic, comma-separated):</label>
           <input type="text" id="bloodPressure" class="form-control" formControlName="bloodPressure">
         </div>
 
         <div class="form-group mb-3">
-          <label for="oxygenSaturation">Saturation en oxygène :</label>
+          <label for="oxygenSaturation">Oxygen Saturation (comma-separated):</label>
           <input type="text" id="oxygenSaturation" class="form-control" formControlName="oxygenSaturation">
         </div>
 
         <div class="d-flex">
-          <button class="btn btn-success mx-auto" type="submit" [disabled]="!newPatientForm.valid">
-            Ajouter Patient
+          <button class="btn btn-success mx-auto" type="submit" [disabled]="!editPatientForm.valid">
+            Update Patient
           </button>
         </div>
       </form>

@@ -17,6 +17,8 @@ import { PatientListComponent } from './patient-list/patient-list.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { HeaderComponent } from './header/header.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditPatientComponent } from './edit-patient/edit-patient.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { AddPatientComponent } from './add-patient/add-patient.component';
     PatientListComponent,
     PatientDetailsComponent,
     HeaderComponent,
-    AddPatientComponent
+    AddPatientComponent,
+    EditPatientComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     MatTableModule,
     MatButtonModule,
     BrowserAnimationsModule,

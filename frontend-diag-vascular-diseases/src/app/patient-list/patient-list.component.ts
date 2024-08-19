@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Patient } from '../models/patient.model';
 import { PatientService } from '../patient.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-list',
@@ -10,9 +11,9 @@ import { PatientService } from '../patient.service';
 export class PatientListComponent {
 
   patients: Patient[] = [];
-  displayedColumns: string[] = ['name', 'heartRate', 'temperature', 'bloodPressure', 'oxygenSaturation'];
+  displayedColumns: string[] = ['name', 'heartRate', 'temperature', 'bloodPressure', 'oxygenSaturation', 'actions'];
 
-  constructor(private patientService: PatientService) { }
+  constructor(private patientService: PatientService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadPatients();
@@ -26,6 +27,19 @@ export class PatientListComponent {
 
   viewPatientDetails(patient: Patient): void {
     console.log('Patient sélectionné:', patient);
+  }
+
+  editPatient(patient: Patient): void {
+    this.router.navigate(['/edit-patient', patient.id]);
+  }
+
+  deletePatient(patient: Patient): void {
+    if (confirm('Are you sure you want to delete this patient?')) {
+      this.patientService.deletePatient(patient.id).subscribe(() => {
+        this.patients = this.patients.filter(p => p.id !== patient.id);
+        console.log('Patient deleted:', patient);
+      });
+    }
   }
 
 }
