@@ -15,12 +15,14 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientListComponent,
-    PatientDetailsComponent
+    PatientDetailsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
