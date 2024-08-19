@@ -16,13 +16,15 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { HeaderComponent } from './header/header.component';
+import { AddPatientComponent } from './add-patient/add-patient.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientListComponent,
     PatientDetailsComponent,
-    HeaderComponent
+    HeaderComponent,
+    AddPatientComponent
   ],
   imports: [
     BrowserModule,
