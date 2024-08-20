@@ -11,6 +11,14 @@ spring.jpa.hibernate.ddl-auto=update
 spring.main.allow-circular-references=true
 ```
 
+### Springdoc OpenAPI Configuration
+```
+# Springdoc OpenAPI configuration
+springdoc.api-docs.path=/api-docs
+springdoc.swagger-ui.path=/swagger-ui
+```
+
+
 ## Frontend Angular
 
 ### Homepage

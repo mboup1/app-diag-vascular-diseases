@@ -4,7 +4,8 @@
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef>
-        <input type="text" id="search" class="form-control" placeholder="Rechercher" [formControl]="searchTermControl">
+
+        <input type="text" id="search" class="form-control" placeholder="Rechercher" [formControl]="searchTermControl"  placeholder="nom ou num médical ">
       </mat-header-cell>
       <mat-cell *matCellDef="let patient" (click)="viewPatientDetails(patient)">
         {{ patient.firstName }} {{ patient.lastName }}
