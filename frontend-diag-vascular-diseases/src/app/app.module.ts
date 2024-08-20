@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-
+import { ChartModule } from 'angular-highcharts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +40,7 @@ import { EditPatientComponent } from './edit-patient/edit-patient.component';
     MatFormFieldModule,
     MatPaginatorModule,
     MatSortModule,
+    ChartModule
 
 
   ],
