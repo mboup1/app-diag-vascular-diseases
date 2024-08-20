@@ -26,11 +26,10 @@ export class PatientListComponent {
   }
 
   viewPatientDetails(patient: Patient): void {
-    console.log('Patient sélectionné:', patient);
+    this.router.navigate(['/patient-details', patient.id]);
   }
 
   editPatient(patient: Patient): void {
-    // console.log("editPatient : ", patient)
 
     this.router.navigate(['/edit-patient', patient.id]);
   }
